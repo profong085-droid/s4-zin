@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ក្រុម S4 - កាចសាហាវ និងទាន់សម័យ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Angkor&family=Bayon&family=Kantumruy+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* រចនាបែបកាចសាហាវ និងទាន់សម័យ */
+        :root {
+            --main-color: #000;
+            --accent-color: #ff0000;
+            --secondary-color: #222;
+            --text-color: #fff;
+            --glow-color: rgba(255, 0, 0, 0.7);
+            --gradient-start: #8e0000;
+            --gradient-end: #000000;
+            --neon-red: #ff073a;
+            --neon-blue: #05d9e8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Kantumruy Pro', 'Bayon', 'Angkor', sans-serif;
+        }
+        
+        body {
+            background-color: var(--main-color);
+            color: var(--text-color);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 0, 0, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 0, 0.1) 0%, transparent 20%);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* រចនាបែបកាចសាហាវសម្រាប់ header */
+        header {
+            background: linear-gradient(to right, #000, #222);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-color);
+            text-shadow: 0 0 10px var(--glow-color);
+            animation: glow 2s infinite alternate;
+            font-family: 'Bayon', sans-serif;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 5px var(--glow-color); }
+            to { text-shadow: 0 0 20px var(--glow-color), 0 0 30px var(--accent-color); }
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin: 0 1rem;
+        }
+        
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Hero section */
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><rect fill="white" width="100" height="100"/></svg>');
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 3px 3px 0 var(--accent-color);
+            animation: titleAnimation 2s forwards;
+            opacity: 0;
+            transform: translateY(50px);
+            font-family: 'Bayon', sans-serif;
+        }
+        
+        @keyframes titleAnimation {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero p {
+            font-size: 1.8rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+            animation: fadeIn 2s forwards 0.5s;
+            opacity: 0;
+        }
+        
+        .hero-cta {
+            margin-top: 2rem;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 0 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-color);
+        }
+        
+        .cta-btn:hover {
+            background-color: transparent;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+        }
+        
+        .cta-btn.secondary {
+            background-color: transparent;
+            border: 2px solid var(--text-color);
+        }
+        
+        .cta-btn.secondary:hover {
+            background-color: var(--text-color);
+            color: var(--main-color);
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        /* Team members section */
+        .team-section {
+            padding: 5rem 2rem;
+            background-color: var(--secondary-color);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            padding-bottom: 1rem;
+            font-family: 'Bayon', sans-serif;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .team-member {
+            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 0, 0, 0.2);
+        }
+        
+        .member-image {
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+        
+        .member-info {
+            padding: 1.8rem;
+            text-align: center;
+        }
+        
+        .member-name {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+            font-family: 'Bayon', sans-serif;
+        }
+        
+        .member-role {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+        
+        .member-desc {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .member-social a {
+            color: var(--text-color);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .member-social a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Camera section */
+        .camera-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            background-color: var(--main-color);
+        }
+        
+        .camera-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .camera-feed {
+            width: 100%;
+            height: 450px;
+            background-color: #111;
+            border: 3px solid var(--accent-color);
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .camera-placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #666;
+            font-size: 1.5rem;
+        }
+        
+        .camera-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .btn:hover {
+            background-color: #cc0000;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+        }
+        
+        /* AI Assistant Section */
+        .ai-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(to right, #0d0d0d, #1a1a1a);
+            text-align: center;
+        }
+        
+        .ai-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .ai-demo {
+            background: #111;
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid var(--neon-blue);
+            box-shadow: 0 0 15px rgba(5, 217, 232, 0.3);
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .ai-chat {
+            background: #1a1a1a;
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid var(--neon-red);
+            box-shadow: 0 0 15px rgba(255, 7, 58, 0.3);
+            height: 400px;
+            text-align: left;
+        }
+        
+        .ai-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px rgba(5, 217, 232, 0.5);
+        }
+        
+        .chat-messages {
+            height: 280px;
+            overflow-y: auto;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #0d0d0d;
+            border-radius: 10px;
+        }
+        
+        .message {
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+        
+        .message.ai {
+            background: rgba(5, 217, 232, 0.2);
+            border-left: 3px solid var(--neon-blue);
+            margin-right: auto;
+        }
+        
+        .message.user {
+            background: rgba(255, 7, 58, 0.2);
+            border-right: 3px solid var(--neon-red);
+            margin-left: auto;
+        }
+        
+        .chat-input {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 0.8rem;
+            border-radius: 5px;
+            border: 1px solid #333;
+            background: #0d0d0d;
+            color: white;
+        }
+        
+        /* Payment Section */
+        .payment-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(to right, #1a1a1a, #0d0d0d);
+            text-align: center;
+        }
+        
+        .payment-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .bank-info {
+            background: #111;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--accent-color);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+        }
+        
+        .bank-card {
+            background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #333;
+            text-align: left;
+        }
+        
+        .bank-name {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .bank-details {
+            margin-bottom: 1rem;
+        }
+        
+        .qr-code {
+            background: white;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            color: black;
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #111;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 2px solid var(--accent-color);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .social-links a {
+            color: var(--text-color);
+            font-size: 1.8rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .copyright {
+            color: #666;
+            font-size: 1rem;
+            margin-top: 2rem;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .ai-container, .payment-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .team-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                font-size: 1.5rem;
+                color: white;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+        }
+        
+        /* Animation effects */
+        .animated {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* AI Assistant */
+        .ai-assistant {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        
+        .ai-assistant:hover {
+            transform: scale(1.1);
+        }
+        
+        .ai-icon {
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        /* Loading Animation */
+        .loader {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .loader:after {
+            content: " ";
+            display: block;
+            width: 64px;
+            height: 64px;
+            margin: 8px;
+            border-radius: 50%;
+            border: 6px solid var(--accent-color);
+            border-color: var(--accent-color) transparent var(--accent-color) transparent;
+            animation: loader 1.2s linear infinite;
+        }
+        
+        @keyframes loader {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Particle Animation */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(100vw); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">A4</div>
+            <ul class="nav-links">
+                <li><a href="#">ទំព័រដើម</a></li>
+                <li><a href="#">អំពីពួកយើង</a></li>
+                <li><a href="#">សេវាកម្ម</a></li>
+                <li><a href="#">ការតភ្ជាប់</a></li>
+                <li><a href="#">ទំនាក់ទំនង</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ក្រុម A4</h1>
+            <p>ក្រុមសិស្សល្អ មានសមត្ថភាព និងការច្នៃប្រឌិត</p>
+            <div class="hero-cta">
+                <a href="#team" class="cta-btn">ស្វែងយល់ពីពួកយើង</a>
+                <a href="#contact" class="cta-btn secondary">ទំនាក់ទំនង</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" id="team">
+        <h2 class="section-title animated">សមាជិកក្រុម</h2>
+        <div class="team-container">
+            <!-- Member 1 -->
+            <div class="team-member animated">
+                <div class="member-image">
+                    <img src="IMG_7456.JPG" alt="ផូឆៃហ្វុង - សិស្សច្បងទី១">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">ផូឆៃហ្វុង</h3>
+                    <p class="member-role">សិស្សច្បងទី១</p>
+                    <p class="member-desc">ជាសិស្សឆ្នើមដែលមានភាពច្នៃប្រឌិតខ្ពស់ និងជាអ្នកដឹកនាំក្រុមដ៏មានសក្តានុពល។</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Member 2 -->
+            <div class="team-member animated">
+                <div class="member-image">
+                    <img src="photo_2025-09-12_22-58-11.jpg" alt="វឿន សុខចំរើន - សិស្សច្បងទី២">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">វឿន សុខចំរើន</h3>
+                    <p class="member-role">សិស្សច្បងទី២</p>
+                    <p class="member-desc">ជាសិស្សដែលមានភាពវៃឆ្លាតខ្ពស់ និងជាអ្នកដោះស្រាយបញ្ហាដ៏មានសមត្ថភាព។</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Member 3 -->
+            <div class="team-member animated">
+                <div class="member-image">
+                    <img src="photo_2025-09-12_22-59-53.jpg" alt="ហួន ហុងលី - សិស្សច្បងទី២">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">ហួន ហុងលី</h3>
+                    <p class="member-role">សិស្សច្បងទី២</p>
+                    <p class="member-desc">ជាសិស្សដែលមានភាពរហ័ស និងជំនាញក្នុងការបង្កើតគំនិតថ្មីៗ។</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Member 4 -->
+            <div class="team-member animated">
+                <div class="member-image">
+                    <img src="IMG_0092.JPG" alt="លីហួ - សិស្សប្អូនពៅ">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">លីហួ</h3>
+                    <p class="member-role">សិស្សប្អូនពៅ</p>
+                    <p class="member-desc">ជាសិស្សដែលមានភាពអត់ធ្មត់ និងជាអ្នករៀនសូត្រដ៏ឧស្សាហ៍ព្យាយាម។</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Member 5 (New) -->
+            <div class="team-member animated">
+                <div class="member-image">
+                    <img src="photo_2025-09-13_13-47-21.jpg" alt="ន - អ្នកគាំទ្រ">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">នីតា</h3>
+                    <p class="member-role">កូនស្រីពៅ</p>
+                    <p class="member-desc">ស្រីស្អាតប្រចាំថ្នាក់</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Assistant Section -->
+    <section class="ai-section">
+        <h2 class="section-title animated">មុខងារ AI ឆ្លាតវៃ</h2>
+        <div class="ai-container">
+            <div class="ai-demo">
+                <h3 class="ai-title">AI Assistant</h3>
+                <p>មុខងារ AI ដែលអាចជួយឆ្លើយសំណួរ ផ្តល់ព័ត៌មាន និងដោះស្រាយបញ្ហាផ្សេងៗ</p>
+                <div class="loader" id="ai-loader"></div>
+            </div>
+            <div class="ai-chat">
+                <h3 class="ai-title">ការសន្ទនាជាមួយ AI</h3>
+                <div class="chat-messages">
+                    <div class="message ai">សួស្តី! ខ្ញុំជា AI Assistant របស់ក្រុម A4។ តើខ្ញុំអាចជួយអ្នកបានយ៉ាងដូចម្តេច?</div>
+                    <div class="message user">តើក្រុម A4 មានសមាជិកប៉ុន្មាននាក់?</div>
+                    <div class="message ai">ក្រុម A4 មានសមាជិកចំនួន ៥ នាក់ដែលមានសមត្ថភាពខ្ពស់និងការច្នៃប្រឌិត។</div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" placeholder="សួរសំណួរនៅទីនេះ...">
+                    <button class="btn">ផ្ញើ</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Camera Section -->
+    <section class="camera-section">
+        <h2 class="section-title animated">កាមេរ៉ាស្គេន</h2>
+        <div class="camera-container">
+            <div class="camera-feed">
+                <div class="camera-placeholder">កាមេរ៉ានឹងបើកដំណើរការនៅទីនេះ</div>
+            </div>
+            <div class="camera-controls">
+                <button class="btn">បើកកាមេរ៉ា</button>
+                <button class="btn">ថតរូប</button>
+                <button class="btn">ថតវីដេអូ</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section class="payment-section" id="payment">
+        <h2 class="section-title animated">ប្រព័ន្ធទូទាត់</h2>
+        <div class="payment-container">
+            <div class="bank-info">
+                <h3>ព័ត៌មានធនាគារ</h3>
+                
+                <div class="bank-card">
+                    <h4 class="bank-name">ABA Bank</h4>
+                    <div class="bank-details">
+                        <p>ឈ្មោះគណនី: <strong>Pho ChaiFong</strong></p>
+                        <p>លេខគណនី: <strong>004378149</strong></p>
+                    </div>
+                </div>
+                
+                <div class="bank-card">
+                    <h4 class="bank-name">ACLEDA Bank</h4>
+                    <div class="bank-details">
+                        <p>ឈ្មោះគណនី: <strong>Pho ChaiFong</strong></p>
+                        <p>លេខគណនី: <strong>0979450831</strong></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="qr-section">
+                <h3>ស្កេន QR ទូទាត់</h3>
+                <div class="qr-code">
+                    <p>ABA KHQR Code</p>
+                </div>
+                <p style="margin-top: 1rem;">ស្កេន QR Code ខាងលើដើម្បីទូទាត់តាមរយៈ ABA</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>អំពីពួកយើង</h3>
+                    <ul>
+                        <li><a href="#">ប្រវត្តិក្រុម</a></li>
+                        <li><a href="#">គោលបំណង</a></li>
+                        <li><a href="#">សមាជិក</a></li>
+                        <li><a href="#">គម្រោង</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>សេវាកម្ម</h3>
+                    <ul>
+                        <li><a href="#">អភិវឌ្ឍន៍វេបសាយ</a></li>
+                        <li><a href="#">កម្មវិធី Mobile</a></li>
+                        <li><a href="#">AI Solutions</a></li>
+                        <li><a href="#">ការតភ្ជាប់</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>ទំនាក់ទំនង</h3>
+                    <ul>
+                        <li><a href="https://www.facebook.com/share/19mX4Uf7Kr/?mibextid=wwXIfr">Facebook</a></li>
+                        <li><a href="tel:0979450831">0979450831</a></li>
+                        <li><a href="https://t.me/0979450831">Telegram</a></li>
+                        <li><a href="https://wa.me/855979450831">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+            </div>
+            
+            <p class="copyright">© 2023 ក្រុម A4. រក្សាសិទ្ធិគ្រប់យ៉ាងហ្វុង។</p>
+        </div>
+    </footer>
+
+    <!-- AI Assistant -->
+    <div class="ai-assistant">
+        <div class="ai-icon">AI</div>
+    </div>
+
+    <script>
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animated');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Camera functionality simulation
+            const cameraButtons = document.querySelectorAll('.camera-controls .btn');
+            cameraButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    alert('មុខងារកាមេរ៉ានឹងដំណើរការនាពេលខាងមុខ!');
+                });
+            });
+            
+            // AI Assistant functionality
+            const aiAssistant = document.querySelector('.ai-assistant');
+            aiAssistant.addEventListener('click', function() {
+                alert('អន្តរកម្មជាមួយ AI នឹងដំណើរការនាពេលខាងមុខ!');
+            });
+            
+            // Create particles
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const size = Math.random() * 5 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.animationDuration = `${Math.random() * 10 + 10}s`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Simulate AI response
+            const chatInput = document.querySelector('.chat-input input');
+            const chatSendBtn = document.querySelector('.chat-input .btn');
+            const chatMessages = document.querySelector('.chat-messages');
+            
+            chatSendBtn.addEventListener('click', function() {
+                if (chatInput.value.trim() !== '') {
+                    // Add user message
+                    const userMessage = document.createElement('div');
+                    userMessage.classList.add('message', 'user');
+                    userMessage.textContent = chatInput.value;
+                    chatMessages.appendChild(userMessage);
+                    
+                    // Simulate AI thinking
+                    const thinking = document.createElement('div');
+                    thinking.classList.add('message', 'ai');
+                    thinking.textContent = 'កំពុងគិត...';
+                    chatMessages.appendChild(thinking);
+                    
+                    // Scroll to bottom
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    
+                    // Clear input
+                    const userQuestion = chatInput.value;
+                    chatInput.value = '';
+                    
+                    // Simulate AI response after delay
+                    setTimeout(function() {
+                        thinking.remove();
+                        
+                        const aiMessage = document.createElement('div');
+                        aiMessage.classList.add('message', 'ai');
+                        
+                        // Simple response logic
+                        if (userQuestion.includes('សមាជិក') || userQuestion.includes('member')) {
+                            aiMessage.textContent = 'ក្រុម A4 មានសមាជិកចំនួន ៥ នាក់។ ពួកគេមានសមត្ថភាពខ្ពស់និងការច្នៃប្រឌិតក្នុងការងារ។';
+                        } else if (userQuestion.includes('គម្រោង') || userQuestion.includes('project')) {
+                            aiMessage.textContent = 'ក្រុម A4 កំពុងធ្វើគម្រោងអភិវឌ្ឍន៍វេបសាយ កម្មវិធី Mobile និងដំណោះស្រាយ AI។';
+                        } else {
+                            aiMessage.textContent = 'ខ្ញុំអាចជួយឆ្លើយសំណួរអំពីក្រុម A4 សេវាកម្ម និងគម្រោងផ្សេងៗ។ សូមសួរខ្ញុំមក!';
+                        }
+                        
+                        chatMessages.appendChild(aiMessage);
+                        chatMessages.scrollTop = chatMessages.scrollHeight;
+                    }, 1500);
+                }
+            });
+            
+            // Allow sending message with Enter key
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    chatSendBtn.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
